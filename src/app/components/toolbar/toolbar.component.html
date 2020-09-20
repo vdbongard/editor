@@ -1,71 +1,87 @@
-<div class="Toolbar">
+<div class="Toolbar style2 style1">
   <div
-    class="tool"
+    class="tool-wrapper"
     (click)="toolService.selectTool('select')"
     [class.active]="currentTool === 'select'"
   >
-    <mat-icon
-      svgIcon="select-tool"
-      aria-hidden="false"
-      aria-label="Select tool"
-    ></mat-icon>
+    <div class="tool">
+      <mat-icon
+        svgIcon="select-tool"
+        aria-hidden="false"
+        aria-label="Select tool"
+      ></mat-icon>
+    </div>
   </div>
   <div
-    class="tool"
+    class="tool-wrapper"
     (click)="toolService.selectTool('rectangle')"
     [class.active]="currentTool === 'rectangle'"
   >
-    <mat-icon
-      svgIcon="rectangle-tool"
-      aria-hidden="false"
-      aria-label="Rectangle tool"
-    ></mat-icon>
+    <div class="tool">
+      <mat-icon
+        svgIcon="rectangle-tool"
+        aria-hidden="false"
+        aria-label="Rectangle tool"
+      ></mat-icon>
+    </div>
   </div>
   <div
-    class="tool"
+    class="tool-wrapper"
     (click)="toolService.selectTool('circle')"
     [class.active]="currentTool === 'circle'"
   >
-    <mat-icon
-      svgIcon="circle-tool"
-      aria-hidden="false"
-      aria-label="Circle tool"
-    ></mat-icon>
+    <div class="tool">
+      <mat-icon
+        svgIcon="circle-tool"
+        aria-hidden="false"
+        aria-label="Circle tool"
+      ></mat-icon>
+    </div>
   </div>
   <div
-    class="tool"
+    class="tool-wrapper"
     (click)="toolService.selectTool('polygon')"
     [class.active]="currentTool === 'polygon'"
   >
-    <mat-icon
-      svgIcon="polygon-tool"
-      aria-hidden="false"
-      aria-label="Polygon tool"
-    ></mat-icon>
+    <div class="tool">
+      <mat-icon
+        svgIcon="polygon-tool"
+        aria-hidden="false"
+        aria-label="Polygon tool"
+      ></mat-icon>
+    </div>
   </div>
   <div
-    class="tool"
+    class="tool-wrapper"
     (click)="toolService.selectTool('line')"
     [class.active]="currentTool === 'line'"
   >
-    <mat-icon
-      svgIcon="line-tool"
-      aria-hidden="false"
-      aria-label="Line tool"
-    ></mat-icon>
+    <div class="tool">
+      <mat-icon
+        svgIcon="line-tool"
+        aria-hidden="false"
+        aria-label="Line tool"
+      ></mat-icon>
+    </div>
   </div>
   <div
-    class="tool"
+    class="tool-wrapper"
     (click)="toolService.selectTool('pen')"
     [class.active]="currentTool === 'pen'"
   >
-    <mat-icon aria-hidden="false" aria-label="Pen tool">create</mat-icon>
+    <div class="tool">
+      <mat-icon aria-hidden="false" aria-label="Pen tool">create</mat-icon>
+    </div>
   </div>
   <div
-    class="tool text-tool"
+    class="tool-wrapper text-tool"
     (click)="toolService.selectTool('text')"
     [class.active]="currentTool === 'text'"
   >
-    <mat-icon aria-hidden="false" aria-label="Text tool">text_format</mat-icon>
+    <div class="tool">
+      <mat-icon aria-hidden="false" aria-label="Text tool"
+        >text_format</mat-icon
+      >
+    </div>
   </div>
 </div>

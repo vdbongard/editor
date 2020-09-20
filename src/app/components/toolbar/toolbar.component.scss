@@ -7,17 +7,16 @@
   height: 100%;
   z-index: $z-index-toolbar;
   background-color: var(--primary);
+  user-select: none;
+  padding-top: rem(8px);
 
-  .tool {
+  .tool-wrapper {
     @include center;
     color: white;
-    width: var(--bar-size);
-    height: var(--bar-size);
     cursor: default;
 
-    &:hover,
-    &.active {
-      color: var(--secondary);
+    .tool {
+      @include center;
     }
 
     mat-icon {
@@ -28,6 +27,45 @@
 
     &.text-tool mat-icon {
       transform: scale(1.3);
+    }
+  }
+
+  &.style1 {
+    --tool-margin: #{rem(6px)};
+    --tool-margin-x: var(--tool-margin);
+    --tool-margin-y: var(--tool-margin);
+
+    .tool-wrapper {
+      padding: calc(var(--tool-margin-y) / 2) 0;
+
+      .tool {
+        width: calc(var(--bar-size) - var(--tool-margin-x) * 2);
+        height: calc(var(--bar-size) - var(--tool-margin-x) * 2);
+        border-radius: var(--border-radius);
+      }
+
+      &:hover .tool {
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+
+      &.active .tool,
+      &:active .tool {
+        background-color: rgba(255, 255, 255, 0.16);
+      }
+    }
+  }
+
+  &.style2:not(.style1) {
+    .tool-wrapper {
+      .tool {
+        width: var(--bar-size);
+        height: var(--bar-size);
+      }
+
+      &:hover,
+      &.active {
+        color: var(--secondary);
+      }
     }
   }
 }
