@@ -4,7 +4,7 @@
   position: absolute;
   left: var(--bar-size);
   bottom: 0;
-  width: 100%;
+  width: calc(100% - var(--bar-size));
   height: var(--timeline-height);
   box-shadow: var(--shadow);
   z-index: $z-index-timeline;

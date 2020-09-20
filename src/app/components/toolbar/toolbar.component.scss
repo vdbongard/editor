@@ -4,7 +4,7 @@
   position: absolute;
   top: var(--bar-size);
   width: var(--bar-size);
-  height: 100%;
+  height: calc(100% - var(--bar-size));
   z-index: $z-index-toolbar;
   background-color: var(--primary);
   user-select: none;
