@@ -15,7 +15,8 @@
     height: var(--bar-size);
     cursor: default;
 
-    &:hover {
+    &:hover,
+    &.active {
       color: var(--secondary);
     }
 
