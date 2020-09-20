@@ -1,0 +1,32 @@
+@import "src/styles/index";
+
+.Topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--bar-size);
+  box-shadow: var(--shadow);
+  z-index: $z-index-topbar;
+  background-color: white;
+  display: flex;
+  align-items: center;
+
+  .logo-wrapper {
+    @include center;
+    width: var(--bar-size);
+    height: var(--bar-size);
+    background-color: var(--primary);
+    cursor: pointer;
+
+    .logo {
+      height: 1.5rem;
+      padding: 0.5rem;
+    }
+  }
+
+  .title {
+    font-size: 1rem;
+    margin-left: 1.5rem;
+  }
+}

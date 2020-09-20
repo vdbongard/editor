@@ -1,0 +1,35 @@
+@import "src/styles/index";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Lato, Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  // colors
+  --primary: #364052;
+  --secondary: #ff617d;
+
+  // sizes
+  --bar-size: 3.5rem;
+  --timeline-height: 11rem;
+  --sidebar-width: 20rem;
+  --sidebar-small-width: 7.5rem;
+
+  // other
+  --shadow: #{rem(0px 0px 12px rgba(0, 0, 0, 0.18))};
+}

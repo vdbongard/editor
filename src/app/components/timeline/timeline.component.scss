@@ -1,0 +1,12 @@
+@import "src/styles/index";
+
+.Timeline {
+  position: absolute;
+  left: var(--bar-size);
+  bottom: 0;
+  width: 100%;
+  height: var(--timeline-height);
+  box-shadow: var(--shadow);
+  z-index: $z-index-timeline;
+  background-color: white;
+}

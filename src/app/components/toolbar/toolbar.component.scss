@@ -1,0 +1,32 @@
+@import "src/styles/index";
+
+.Toolbar {
+  position: absolute;
+  top: var(--bar-size);
+  width: var(--bar-size);
+  height: 100%;
+  z-index: $z-index-toolbar;
+  background-color: var(--primary);
+
+  .tool {
+    @include center;
+    color: white;
+    width: var(--bar-size);
+    height: var(--bar-size);
+    cursor: default;
+
+    &:hover {
+      color: var(--secondary);
+    }
+
+    mat-icon {
+      width: 1rem;
+      height: 1rem;
+      font-size: 1rem;
+    }
+
+    &.text-tool mat-icon {
+      transform: scale(1.3);
+    }
+  }
+}

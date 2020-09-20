@@ -1,0 +1,12 @@
+@import "src/styles/index";
+
+.Sidebar {
+  position: absolute;
+  top: var(--bar-size);
+  left: var(--bar-size);
+  bottom: var(--timeline-height);
+  width: var(--sidebar-width);
+  box-shadow: var(--shadow);
+  z-index: $z-index-sidebar;
+  background-color: white;
+}
