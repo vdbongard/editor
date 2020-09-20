@@ -1,7 +1,7 @@
 .Content {
   position: absolute;
   top: var(--bar-size);
-  left: calc(var(--bar-size) + var(--sidebar-width));
+  left: var(--bar-size);
   right: var(--sidebar-small-width);
   bottom: var(--timeline-height);
 
