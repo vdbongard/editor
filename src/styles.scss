@@ -1,5 +1,9 @@
 @import "src/styles/index";
 
+html {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;
@@ -17,6 +21,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 :root {
