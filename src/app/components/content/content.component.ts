@@ -7,14 +7,8 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import {
-  Application,
-  Container,
-  Graphics,
-  InteractionEvent,
-  Point,
-  Rectangle,
-} from 'pixi.js';
+import { Application, Container, Graphics, InteractionEvent, Point, Rectangle } from 'pixi.js';
+import { ZOOM_STRENGTH } from '../../constants/interaction';
 
 @Component({
   selector: 'app-content',
@@ -54,6 +48,8 @@ export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
     this.app.stage.on('pointerup', this.handlePointerUp.bind(this));
     this.app.stage.on('pointerupoutside', this.handlePointerUp.bind(this));
 
+    this.contentRef.nativeElement.addEventListener('wheel', this.handleWheel.bind(this));
+
     this.resizeStage();
   }
 
@@ -73,8 +69,8 @@ export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
   resizeStage(): void {
     const width = this.app.screen.width;
     const height = this.app.screen.height;
-    const rectWidth = width * 0.7;
-    const rectHeight = height * 0.7;
+    const rectWidth = 900;
+    const rectHeight = 600;
     const x = (width - rectWidth) / 2;
     const y = (height - rectHeight) / 2;
 
@@ -99,13 +95,36 @@ export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!this.pointerStartOffset) {
       return;
     }
-    const currentPoint = new Point(event.data.global.x, event.data.global.y);
-    this.panAndZoomContainer.x = this.pointerStartOffset.x + currentPoint.x;
-    this.panAndZoomContainer.y = this.pointerStartOffset.y + currentPoint.y;
+    this.panAndZoomContainer.x = this.pointerStartOffset.x + event.data.global.x;
+    this.panAndZoomContainer.y = this.pointerStartOffset.y + event.data.global.y;
   }
 
   handlePointerUp(): void {
     this.pointerStartOffset = null;
     this.stageStart = null;
+  }
+
+  handleWheel(event: WheelEvent): void {
+    const container = this.panAndZoomContainer;
+    const zoomValue = Math.abs(event.deltaY) / ZOOM_STRENGTH;
+    const zoomDelta = event.deltaY > 0 ? 1 / zoomValue : zoomValue;
+    const x = event.offsetX;
+    const y = event.offsetY;
+    const worldPosition = {
+      x: (x - container.x) / container.scale.x,
+      y: (y - container.y) / container.scale.y,
+    };
+    const newScale = {
+      x: container.scale.x * zoomDelta,
+      y: container.scale.y * zoomDelta,
+    };
+    const newScreenPosition = {
+      x: worldPosition.x * newScale.x + container.x,
+      y: worldPosition.y * newScale.y + container.y,
+    };
+    container.x -= newScreenPosition.x - x;
+    container.y -= newScreenPosition.y - y;
+    container.scale.x = newScale.x;
+    container.scale.y = newScale.y;
   }
 }
