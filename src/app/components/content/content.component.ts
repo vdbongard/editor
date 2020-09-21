@@ -106,7 +106,7 @@ export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
 
   handleWheel(event: WheelEvent): void {
     const container = this.panAndZoomContainer;
-    const zoomValue = Math.abs(event.deltaY) / ZOOM_STRENGTH;
+    const zoomValue = Math.abs(event.deltaY) * (ZOOM_STRENGTH / 1000);
     const zoomDelta = event.deltaY > 0 ? 1 / zoomValue : zoomValue;
     const x = event.offsetX;
     const y = event.offsetY;

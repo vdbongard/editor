@@ -1,1 +1,1 @@
-export const ZOOM_STRENGTH = 190;
+export const ZOOM_STRENGTH = 4.5;
