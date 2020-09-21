@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { Application, Container, Graphics, InteractionEvent, Point, Rectangle } from 'pixi.js';
 import { ZOOM_STRENGTH } from '../../constants/interaction';
+import { ToolService } from '../../services/tool.service';
 
 @Component({
   selector: 'app-content',
@@ -24,7 +25,7 @@ export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
   pointerStartOffset: Point;
   stageStart: Point;
 
-  constructor() {}
+  constructor(public toolService: ToolService) {}
 
   ngOnInit(): void {}
 
@@ -49,6 +50,11 @@ export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
     this.app.stage.on('pointerupoutside', this.handlePointerUp.bind(this));
 
     this.contentRef.nativeElement.addEventListener('wheel', this.handleWheel.bind(this));
+
+    this.toolService.currentTool$.subscribe((tool) => {
+      const crosshairCursor = ['rectangle', 'circle', 'polygon', 'line'];
+      this.app.stage.cursor = crosshairCursor.includes(tool) ? 'crosshair' : 'auto';
+    });
 
     this.resizeStage();
   }
