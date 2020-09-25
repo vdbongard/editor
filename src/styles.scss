@@ -11,16 +11,14 @@ body {
 
 body {
   margin: 0;
-  font-family: Lato, Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: Lato, Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 *,
@@ -35,8 +33,8 @@ code {
   --secondary: #ff617d;
 
   // sizes
-  --bar-size: 3.5rem;
-  --timeline-height: 11rem;
+  --bar-size: #{rem(48px)};
+  --timeline-height: #{rem(156px)};
   --sidebar-width: 20rem;
   --sidebar-small-width: 7.5rem;
   --sidebar-small-width: 20rem;
